@@ -1,112 +1,49 @@
-import React from "react";
 
-function MatchCard({ match, onBook, isBooked = false }) {
-  const {
-    id,
-    matchNo,
-    teamA,
-    teamB,
-    date,
-    time,
-    venue,
-    price,
-    category,
-    availableSeats,
-  } = match;
+import { useState } from "react";
 
-  const handleBookClick = () => {
-    if (onBook) {
-      onBook(match);
-    }
+function Matchcard({ team1, team2, date, venue, price }) {
+
+  const [tickets, setTickets] = useState(1);
+
+  const total = tickets * price;
+
+  const handleBookNow = () => {
+    alert(`🎉 Successfully booked ${tickets} ticket(s) for ${team1} vs ${team2}!\nVenue: ${venue}\nDate: ${date}\nTotal Amount: ₹${total}`);
   };
 
   return (
-    <article className={`match-card ${isBooked ? "card-booked" : ""}`} id={`match-card-${id}`}>
-      {/* Top Card Badge: Match # & Category */}
-      <div className="match-card-header">
-        <span className="match-number-tag">{matchNo || `MATCH #${id}`}</span>
-        {category && <span className="match-category-tag">{category}</span>}
-      </div>
+    <div className="match-card">
 
-      {/* Teams Faceoff Section */}
-      <div className="teams-duel-container">
-        {/* Team A */}
-        <div className="team-item team-a">
-          <div
-            className="team-crest"
-            style={{
-              borderColor: teamA.color || "#f59e0b",
-              background: `radial-gradient(circle, ${teamA.color}22 0%, rgba(255,255,255,0.02) 80%)`,
-            }}
-          >
-            <span className="team-emoji-icon">{teamA.logo || "🏏"}</span>
-          </div>
-          <span className="team-short-code">{teamA.shortName}</span>
-          <span className="team-full-name">{teamA.name}</span>
-        </div>
+      <h2>{team1} vs {team2}</h2>
 
-        {/* VS Indicator */}
-        <div className="vs-badge-wrapper">
-          <div className="vs-circle">VS</div>
-          <span className="live-pulse-text">LIVE SOON</span>
-        </div>
+      <p>Date: {date}</p>
 
-        {/* Team B */}
-        <div className="team-item team-b">
-          <div
-            className="team-crest"
-            style={{
-              borderColor: teamB.color || "#38bdf8",
-              background: `radial-gradient(circle, ${teamB.color}22 0%, rgba(255,255,255,0.02) 80%)`,
-            }}
-          >
-            <span className="team-emoji-icon">{teamB.logo || "🏏"}</span>
-          </div>
-          <span className="team-short-code">{teamB.shortName}</span>
-          <span className="team-full-name">{teamB.name}</span>
-        </div>
-      </div>
+      <p>Venue: {venue}</p>
 
-      {/* Match Meta Information: Date, Time, Venue */}
-      <div className="match-meta-grid">
-        <div className="meta-row">
-          <span className="meta-icon" aria-hidden="true">📅</span>
-          <span className="meta-text"><strong>{date}</strong></span>
-        </div>
-        <div className="meta-row">
-          <span className="meta-icon" aria-hidden="true">⏰</span>
-          <span className="meta-text">{time}</span>
-        </div>
-        <div className="meta-row meta-venue">
-          <span className="meta-icon" aria-hidden="true">📍</span>
-          <span className="meta-text" title={venue}>{venue}</span>
-        </div>
-      </div>
+      <p>Ticket Price: ₹{price}</p>
 
-      {/* Card Footer: Price & CTA */}
-      <div className="match-card-footer">
-        <div className="price-tag-wrapper">
-          <span className="price-label">Tickets From</span>
-          <span className="price-amount">₹{price.toLocaleString("en-IN")}</span>
-          {availableSeats && (
-            <span className="seats-tag">
-              <span className="seat-dot"></span> {availableSeats} seats left
-            </span>
-          )}
-        </div>
+      <div style={{ margin: "12px 0" }}>
+        <button onClick={() => setTickets((prev) => Math.max(1, prev - 1))}>
+          -
+        </button>
 
-        <button
-          type="button"
-          className={`book-now-btn ${isBooked ? "booked" : ""}`}
-          onClick={handleBookClick}
-          aria-label={`Book ticket for ${teamA.shortName} vs ${teamB.shortName}`}
-        >
-          {isBooked ? "Book Again" : "Book Now"}
-          <span className="btn-arrow" aria-hidden="true">→</span>
+        <span> {tickets} </span>
+
+        <button onClick={() => setTickets((prev) => prev + 1)}>
+          +
         </button>
       </div>
-    </article>
+
+      <p><strong>Total Price:</strong> ₹{total}</p>
+
+      <button onClick={handleBookNow} style={{ marginTop: "10px", fontWeight: "bold" }}>
+        Book Now
+      </button>
+
+    </div>
   );
 }
 
-export default MatchCard;
+export default Matchcard;
+
+
