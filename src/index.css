@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Navbar */
+nav {
+  background-color: #111;
+  padding: 20px;
+  text-align: center;
+}
+
+nav h2 {
+  color: white;
+  margin: 0 0 15px;
+}
+
+nav a {
+  color: white;
+  margin: 15px;
+  text-decoration: none;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 50px;
+  background-color: white;
+}
+
+.hero h1 {
+  font-size: 40px;
+}
+
+.hero p {
+  font-size: 20px;
+}
+
+.hero button {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Match Card */
+.match-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 25px;
+  margin: 20px auto;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Buttons */
+.match-card button {
+  padding: 8px 15px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.match-card span {
+  margin: 10px;
+  font-size: 18px;
+}body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Navbar */
+nav {
+  background-color: #111;
+  padding: 20px;
+  text-align: center;
+}
+
+nav h2 {
+  color: white;
+  margin: 0 0 15px;
+}
+
+nav a {
+  color: white;
+  margin: 15px;
+  text-decoration: none;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 50px;
+  background-color: white;
+}
+
+.hero h1 {
+  font-size: 40px;
+}
+
+.hero p {
+  font-size: 20px;
+}
+
+.hero button {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Match Card */
+.match-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 25px;
+  margin: 20px auto;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Buttons */
+.match-card button {
+  padding: 8px 15px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.match-card span {
+  margin: 10px;
+  font-size: 18px;
+}
+
+
+
